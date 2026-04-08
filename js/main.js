@@ -157,18 +157,12 @@ function updateTransparencyNotes(displayedCount, totalCountInYear) {
 function drawBarChart() {
 	const yearData = state.filteredByMeasure
 		.filter((d) => String(d.year) === state.selectedYear)
+		.filter((d) => d.pollutant === "Greenhouse gases")
 		.filter((d) => Number.isFinite(d.value));
 
 	yearData.sort((a, b) => b.value - a.value);
 
-	const seen = new Set();
-	const deduped = yearData.filter(d => {
-		if (seen.has(d.countryName)) return false;
-		seen.add(d.countryName);
-		return true;
-	});
-
-	const displayedData = state.selectedTopN > 0 ? deduped.slice(0, state.selectedTopN) : deduped;
+	const displayedData = state.selectedTopN > 0 ? yearData.slice(0, state.selectedTopN) : yearData;
 
 	const dims = getDimensions(svgBar);
 	const { width, height, margin } = dims;
@@ -256,6 +250,7 @@ function drawBarChart() {
 function drawLineChart() {
 	const series = state.filteredByMeasure
 		.filter((d) => d.countryName === state.selectedCountry)
+		.filter((d) => d.pollutant === "Greenhouse gases")
 		.filter((d) => Number.isFinite(d.value))
 		.sort((a, b) => a.year - b.year);
 
