@@ -157,7 +157,7 @@ function updateTransparencyNotes(displayedCount, totalCountInYear) {
 function drawBarChart() {
 	const yearData = state.filteredByMeasure
 		.filter((d) => String(d.year) === state.selectedYear)
-		.filter((d) => d.pollutant === "Greenhouse gases")
+		.filter((d) => d.pollutant && d.pollutant.includes("Greenhouse"))
 		.filter((d) => Number.isFinite(d.value));
 
 	yearData.sort((a, b) => b.value - a.value);
@@ -250,7 +250,7 @@ function drawBarChart() {
 function drawLineChart() {
 	const series = state.filteredByMeasure
 		.filter((d) => d.countryName === state.selectedCountry)
-		.filter((d) => d.pollutant === "Greenhouse gases")
+		.filter((d) => d.pollutant && d.pollutant.includes("Greenhouse"))
 		.filter((d) => Number.isFinite(d.value))
 		.sort((a, b) => a.year - b.year);
 	
