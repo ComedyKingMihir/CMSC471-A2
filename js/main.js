@@ -253,6 +253,9 @@ function drawLineChart() {
 		.filter((d) => d.pollutant === "Greenhouse gases")
 		.filter((d) => Number.isFinite(d.value))
 		.sort((a, b) => a.year - b.year);
+	
+	console.log("Series length:", series.length);
+	console.log("Sample pollutant values:", [...new Set(state.filteredByMeasure.map(d => d.pollutant))]);
 
 	const dims = getDimensions(svgLine);
 	const { width, height, margin } = dims;
