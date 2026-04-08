@@ -161,9 +161,6 @@ function drawBarChart() {
 
 	yearData.sort((a, b) => b.value - a.value);
 
-	console.log("Unique countries in yearData:", [...new Set(yearData.map(d => d.countryName))].length);
-	console.log("Total rows in yearData:", yearData.length);
-
 	const seen = new Set();
 	const deduped = yearData.filter(d => {
 		if (seen.has(d.countryName)) return false;
