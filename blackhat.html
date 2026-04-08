@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Black Hat Visualization: OECD Greenhouse Gas Data</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="theme-inverse">
+	<div class="page-bg"></div>
+	<main class="layout">
+		<header class="hero">
+			<div class="hero-top">
+				<p class="eyebrow">CMSC471 Ethical Visualization</p>
+				<a class="toggle-link" href="index.html">View White Hat Simulation</a>
+			</div>
+			<h1>Black Hat Simulation: OECD Greenhouse Gas Emissions</h1>
+			<p class="subtitle">
+				This view uses misleading techniques such as selective filtering, distorted scales, and deceptive encodings to manipulate perception.
+			</p>
+		</header>
+
+		<section class="card controls" aria-label="Visualization controls">
+			<h2>Controls</h2>
+			<div class="controls-grid">
+				<label>
+					Measure
+					<select id="measure-select"></select>
+				</label>
+
+				<label>
+					Year
+					<select id="year-select"></select>
+				</label>
+
+				<label>
+					Ranking Window
+					<select id="topn-select">
+						<option value="10">Top 10 countries</option>
+						<option value="20" selected>Top 20 countries</option>
+						<option value="30">Top 30 countries</option>
+						<option value="0">All available countries</option>
+					</select>
+				</label>
+
+				<label>
+					Bias Mode
+					<select id="bias-select">
+						<option value="none" selected>No bias</option>
+						<option value="reduce-measures">Reduce measures</option>
+						<option value="reduce-years">Reduce years</option>
+						<option value="limit-countries">Limit countries</option>
+						<option value="favor-country">Favor selected country</option>
+					</select>
+				</label>
+
+				<label>
+					Trend Country
+					<select id="country-select"></select>
+				</label>
+			</div>
+		</section>
+
+		<section class="card" aria-label="Bar chart section">
+			<h2>Emissions by Country (Selected Year)</h2>
+			<p class="chart-note">
+				Bars are sorted from highest to lowest emissions for the selected year and measure. Scale optimized for maximum visual impact.
+			</p>
+			<svg id="bar-chart" role="img" aria-label="Bar chart of emissions by country"></svg>
+		</section>
+
+		<section class="card" aria-label="Trend chart section">
+			<h2>Trend for Selected Country</h2>
+			<p class="chart-note">
+				Line chart shows key annual observations for the selected country and measure. Data curated for compelling narrative.
+			</p>
+			<svg id="line-chart" role="img" aria-label="Line chart of emissions over time"></svg>
+		</section>
+
+
+	</main>
+
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="js/blackhat.js"></script>
+</body>
+</html></content>
+<parameter name="filePath">/Users/bilalsuleman/Downloads/CMSC471-A2-main/blackhat.html
