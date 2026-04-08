@@ -1,4 +1,4 @@
-const DATA_PATH = "https://drive.google.com/file/d/1qVlrGjtDlbaVL06fFxUz1iRwoKm-_WkG/view?usp=sharing";
+const DATA_PATH = "data.csv";
 
 const svgBar = d3.select("#bar-chart");
 const svgLine = d3.select("#line-chart");
