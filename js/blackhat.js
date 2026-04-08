@@ -213,7 +213,14 @@ function drawBarChart() {
 
 	yearData.sort((a, b) => b.value - a.value);
 
-	const displayedData = state.selectedTopN > 0 ? yearData.slice(0, state.selectedTopN) : yearData;
+	const seen = new Set();
+	const deduped = yearData.filter(d => {
+		if (seen.has(d.countryName)) return false;
+		seen.add(d.countryName);
+		return true;
+	});
+
+	const displayedData = state.selectedTopN > 0 ? deduped.slice(0, state.selectedTopN) : deduped;
 
 	const dims = getDimensions(svgBar);
 	const { width, height, margin } = dims;
