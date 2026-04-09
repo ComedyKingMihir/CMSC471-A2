@@ -326,7 +326,6 @@ function drawLineChart() {
 		.domain(d3.extent(series, (d) => d.year))
 		.range([0, innerWidth]);
 
-	// Fix scaling: use a normal linear axis for the trend chart
 	const maxSeriesValue = d3.max(series, (d) => d.value) || 0;
 	const y = d3
 		.scaleLinear()
