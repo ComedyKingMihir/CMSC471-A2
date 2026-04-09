@@ -257,6 +257,7 @@ function drawLineChart() {
 	console.log("Series length:", series.length);
 	console.log("Sample pollutant values:", [...new Set(state.filteredByMeasure.map(d => d.pollutant))]);
 	console.log("Pollutant chars:", [...state.filteredByMeasure[0].pollutant].map(c => c.charCodeAt(0)));
+	console.log("Filtered pollutants:", [...new Set(series.map(d => d.pollutant))]);
 
 	const dims = getDimensions(svgLine);
 	const { width, height, margin } = dims;
